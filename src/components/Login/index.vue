@@ -1,18 +1,18 @@
 <template>
   <div class="login-wrap">
-    <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
+    <Form class="login-from" ref="formInline" :model="formInline" :rules="ruleInline">
       <FormItem prop="user">
-        <Input type="text" v-model="formInline.user" placeholder="Username">
-        <Icon type="ios-person-outline" slot="prepend"></Icon>
+        <Input type="text" size="large" v-model="formInline.user" placeholder="Username">
+        <Icon size="20" type="ios-person-outline" slot="prepend"></Icon>
         </Input>
       </FormItem>
       <FormItem prop="password">
-        <Input type="password" v-model="formInline.password" placeholder="Password">
+        <Input type="password" size="large" v-model="formInline.password" placeholder="Password">
         <Icon type="ios-locked-outline" slot="prepend"></Icon>
         </Input>
       </FormItem>
       <FormItem>
-        <Button type="primary" @click="handleSubmit('formInline')">Signin</Button>
+        <Button type="primary" size="large" @click="handleSubmit('formInline')">Signin</Button>
       </FormItem>
     </Form>
   </div>
@@ -20,9 +20,25 @@
 <style lang="scss">
   $bg:black;
   .login-wrap {
-    background: url("../../../static/img/login-bg.jpg") no-repeat;;
+    background: url(../../../static/img/login-bg.png)  no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
   }
-  
+  .login-from{
+    width: 300px;
+    height: 200px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    position: absolute;
+  }
+
 </style>
 <script>
   export default {
