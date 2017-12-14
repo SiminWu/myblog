@@ -3,9 +3,9 @@
  */
 import axios from 'axios';
 // 服务地址
-export const SERVICE = 'http://192.168.10.249:8550';
-export const API_PATH = '/windelephant/api'
-export const API_FULL = SERVICE + API_PATH;
+export const SERVICE = 'http://localhost:3000';
+export const API_PATH = '/blog'
+export const API_FULL = SERVICE;
 
 /**
  * get公共调用方法
@@ -38,13 +38,11 @@ function apiGet(url, params, sucess, fail) {
  */
 function apiPost(url, param = {}, sucess, fail) {
   // 判断参数类型
-  if (!checkParam(url, sucess, fail)) {
-    return new Error('参数错误...');
-  }
+  console.log('xxx');
   axios
     .post(url, param)
     .then(res => {
-      validResponed(res);
+    console.log('xxx3');
       let data = res.data;
       sucess(data);
     })
@@ -63,7 +61,9 @@ function apiPost(url, param = {}, sucess, fail) {
 
 export default{
    //登录接口
-   LoginBlog(param){
+   LoginBlog(param,sucess, fail){
+     console.log(param)
+     console.log("zhi:"+API_FULL+'/login')
      apiPost(API_FULL+'/login', param, sucess, fail)
   },
 }

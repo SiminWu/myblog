@@ -45,8 +45,8 @@
     data () {
       return {
         formInline: {
-          user: '',
-          password: ''
+          user: 'simin',
+          password: '123456'
         },
         ruleInline: {
           user: [
@@ -61,9 +61,15 @@
     },
     methods: {
       handleSubmit(name) {
+        var _this = this;
         this.$refs[name].validate((valid) => {
           if (valid) {
-            this.$Message.success('Success!');
+            this.$api.LoginBlog({user: 'simin', password: '123456'},
+              function () {
+                this.$Message.success('成功!');
+              }, function () {
+                this.$Message.success('失败!');
+              })
           } else {
             this.$Message.error('Fail!');
           }
