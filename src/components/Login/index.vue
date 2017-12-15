@@ -65,10 +65,11 @@
         this.$refs[name].validate((valid) => {
           if (valid) {
             this.$api.LoginBlog({user: 'simin', password: '123456'},
-              function () {
-                this.$Message.success('成功!');
+              function (data) {
+                console.log(data)
+                _this.$Message.success('成功!');
               }, function () {
-                this.$Message.success('失败!');
+                _this.$Message.success('失败!');
               })
           } else {
             this.$Message.error('Fail!');

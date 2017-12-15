@@ -36,27 +36,27 @@ function apiGet(url, params, sucess, fail) {
  * @param {any} sucess
  * @param {any} fail
  */
-function apiPost(url, param = {}, sucess, fail) {
+function apiPost(url, param = {}, success, fail) {
   // 判断参数类型
   console.log('xxx');
   axios
     .post(url, param)
     .then(res => {
-    console.log('xxx3');
+    console.log(res);
       let data = res.data;
-      sucess(data);
+      success(data);
     })
-    .catch(error => {
-      let res = error.response;
-      if (typeof res !== 'undefined') {
-        // if (res.status === 400) {     Message.error({         message: '用户尚未注册'
-        // }); } return Promise.reject(res.statusText);
-        // if (res.status !== 200) {
-        //     Message.error({message: res.data.msg});
-        // }
-      }
-      fail(res.data);
-    });
+  //   .catch(function (error) {
+  //     let res = error.response;
+  //     if (typeof res !== 'undefined') {
+  //       // if (res.status === 400) {     Message.error({         message: '用户尚未注册'
+  //       // }); } return Promise.reject(res.statusText);
+  //       // if (res.status !== 200) {
+  //       //     Message.error({message: res.data.msg});
+  //       // }
+  //     }
+  //     console.log("出错了")
+  // });
 }
 
 export default{
